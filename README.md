@@ -7,6 +7,7 @@ Qbs stands for Query By Struct. A Go ORM. [中文版 README](https://github.com/
 
 ## ChangeLog
 
+* 2019.12.13: added memsql compatibility dialect (by kokizzu)
 * 2013.03.14: index name has changed to `{table name}_{column name}`.
     - For existing application with existing database, update to this change may lead to creating redundant index, you may need to drop duplicated index manually.
 * 2013.03.14: make all internal structures unexported.
