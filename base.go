@@ -5,6 +5,7 @@ import (
 	"database/sql"
 	"fmt"
 	"reflect"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -140,11 +141,10 @@ func (d base) querySql(criteria *criteria) (string, []interface{}) {
 	}
 
 	if x := criteria.limit; x > 0 {
-		query.WriteString(" LIMIT ?")
-		args = append(args, criteria.limit)
+		query.WriteString(" LIMIT " + strconv.Itoa(x))
 	}
 	if x := criteria.offset; x > 0 {
-		query.WriteString(" OFFSET ?")
+		query.WriteString(" OFFSET " + strconv.Itoa(x))
 		args = append(args, criteria.offset)
 	}
 	return d.dialect.substituteMarkers(query.String()), args

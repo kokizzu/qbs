@@ -125,6 +125,8 @@ func RegisterWithDataSourceName(dsn *DataSourceName) {
 	var driverName string
 	mustCloseDBForNewDatasource := false
 	switch dsn.Dialect.(type) {
+	case *memsql:
+		driverName = "mysql"
 	case *mysql:
 		driverName = "mysql"
 	case *sqlite3:
